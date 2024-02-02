@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="progress-bar-container">
+      <div id="progress-bar">
+        <div id="toast">
+          <div id="draggable-handle">
+            <span id="emoji">😐</span>
+          </div>
+        </div>
+      </div>
+      <div id="rating-container">
+        <p id="rating-text">Rating is shown here...</p>
+      </div>
+    </div>
+
+    <script>
+      const progressBar = document.getElementById("progress-bar");
+      const draggableHandle = document.getElementById("draggable-handle");
+      const emojiSpan = document.getElementById("emoji");
+      const ratingText = document.getElementById("rating-text");
+      const toastContainer = document.getElementById("toast");
+      let isDragging = false;
+
+      draggableHandle.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        document.addEventListener("mousemove", handleDrag);
+        document.addEventListener("mouseup", () => {
+          isDragging = false;
+          document.removeEventListener("mousemove", handleDrag);
+        });
+      });
+
+      function handleDrag(e) {
+        if (isDragging) {
+          const { left, width } = progressBar.getBoundingClientRect();
+          let newX = e.clientX - left;
+          const restrictedWidth = width - 25;
+
+          // Ensure the handle stays within the bounds of the progress bar
+          newX = Math.max(0, Math.min(newX, width));
+
+          draggableHandle.style.left = `${newX}px`;
+          toastContainer.style.width = `${newX}px`;
+
+          // Calculate the progress level (0 to 5)
+          const progressLevel = Math.floor((newX / width) * 5);
+          ratingText.innerText = `You gave the rating ${progressLevel}`;
+          // Update the emoji based on the progress level
+          updateEmoji(progressLevel);
+        }
+      }
+
+      // Emoji strucure :
+      // No response till : 😐
+      // 0 - 1 : angry
+      // 1 - 2 : Sad/concerned
+      // 2 - 3 : neutral
+      // 3-4 : happy
+      // 4-5 : good
+      // 5+ : very good.
+
+      function updateEmoji(level) {
+        switch (level) {
+          case 0:
+            emojiSpan.textContent = "😡";
+            break;
+          case 1:
+            emojiSpan.textContent = "😟";
+            break;
+          case 2:
+            emojiSpan.textContent = "😊";
+            break;
+          case 3:
+            emojiSpan.textContent = "😀";
+            break;
+          case 4:
+            emojiSpan.textContent = "😃";
+            break;
+          case 5:
+            emojiSpan.textContent = "😁";
+            break;
+          default:
+            emojiSpan.textContent = "😐";
+        }
+      }
+    </script>
+  </body>
+</html>
