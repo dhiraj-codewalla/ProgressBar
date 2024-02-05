@@ -22,7 +22,7 @@ body {
 }
 
 #draggable-handle {
-  width: 25px;
+  width: 30px;
   height: 25px;
   display: flex;
   background-color: transparent;

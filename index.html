@@ -10,7 +10,7 @@
       <div id="progress-bar">
         <div id="toast">
           <div id="draggable-handle">
-            <span id="emoji">😐</span>
+            <img id="emoji"  src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Dotted%20Line%20Face.png"  width="25" height="25"></img>
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
       //Constat decleration
       const progressBar = document.getElementById("progress-bar");
       const draggableHandle = document.getElementById("draggable-handle");
-      const emojiSpan = document.getElementById("emoji");
+      const emojiImg = document.getElementById("emoji");
       const ratingText = document.getElementById("rating-text");
       const toastContainer = document.getElementById("toast");
 
@@ -31,6 +31,7 @@
 
       //method to handle when user presses on emoji and move the mouse.
       draggableHandle.addEventListener("mousedown", (e) => {
+        e.preventDefault();
         isDragging = true;
 
         document.addEventListener("mousemove", handleDrag);
@@ -76,27 +77,70 @@
       function updateEmoji(level) {
         switch (level) {
           case 0:
-            emojiSpan.textContent = "😡";
+            // emojiSpan.textContent = "😡";
+            emojiImg.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Angry%20Face.png"
+            
             break;
           case 1:
-            emojiSpan.textContent = "😟";
+            // emojiSpan.textContent = "😟";
+            emojiImg.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Disappointed%20Face.png"
             break;
           case 2:
-            emojiSpan.textContent = "😊";
+            // "😊"; 
+            emojiImg.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Face%20Savoring%20Food.png"
             break;
           case 3:
-            emojiSpan.textContent = "😀";
-            break;
+              // "😀";
+            emojiImg.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Face.png"
+              break;
           case 4:
-            emojiSpan.textContent = "😃";
-            break;
+                //  "😃";
+            emojiImg.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Face%20with%20Big%20Eyes.png"
+                break;
           case 5:
-            emojiSpan.textContent = "😁";
-            break;
+                  //  "😁";
+            emojiImg.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Beaming%20Face%20with%20Smiling%20Eyes.png"
+                  break;
           default:
-            emojiSpan.textContent = "😐";
+            //  "😐";
+            emojiImg.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Face%20with%20Sweat.png"
+            break;
         }
       }
     </script>
   </body>
 </html>
+
+<!--
+
+  angry faceb : 0 
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Angry%20Face.png" alt="Angry Face" width="25" height="25" />
+
+
+  dissapoint : 1
+
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Disappointed%20Face.png" alt="Disappointed Face" width="25" height="25" />
+
+  don't know 
+
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Dotted%20Line%20Face.png" alt="Dotted Line Face" width="25" height="25" />
+
+  2 : 
+
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Face%20Savoring%20Food.png" alt="Face Savoring Food" width="25" height="25" />
+
+  3 : 
+
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Face.png" alt="Grinning Face" width="25" height="25" />
+
+  4 : 
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Face%20with%20Big%20Eyes.png" alt="Grinning Face with Big Eyes" width="25" height="25" />
+
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Face%20with%20Diagonal%20Mouth.png" alt="Face with Diagonal Mouth" width="25" height="25" />
+
+
+  5 : 
+
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Beaming%20Face%20with%20Smiling%20Eyes.png" alt="Beaming Face with Smiling Eyes" width="25" height="25" />
+
+-->
