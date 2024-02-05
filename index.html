@@ -30,6 +30,7 @@
 
       //method to handle when user presses on emoji and move the mouse.
       draggableHandle.addEventListener("mousedown", (e) => {
+        e.preventDefault();
         isDragging = true;
 
         document.addEventListener("mousemove", handleDrag);
