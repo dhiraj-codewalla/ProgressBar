@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @keyframes burst {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(2);
+          opacity: 0;
+        }
+      }
+
+      .burst-emoji {
+        display: inline-block;
+        animation: burst 0.5s ease-out;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="emojiContainer">
+      <div class="burst-emoji">🎉</div>
+    </div>
+
+    <button id="animateButton">Animate Emoji</button>
+
+    <script>
+      const emojiContainer = document.getElementById("emojiContainer");
+      const animateButton = document.getElementById("animateButton");
+
+      animateButton.addEventListener("click", () => {
+        // Clone the emoji element to restart the animation
+        const emojiClone = emojiContainer.firstElementChild.cloneNode(true);
+        emojiContainer.replaceChild(
+          emojiClone,
+          emojiContainer.firstElementChild
+        );
+      });
+    </script>
+  </body>
+</html>
+
+<!--
+
+
+
+  
+--> 
